@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+.active {
+	color: #009900;
+	border: 1px solid #009900;
+}
+
+body {
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+
+.button-panel, .clock {
+	width: 100%;
+	text-align: center;
+}
+
+.button-panel div {
+	font-size: 1.5em;
+	display: inline-block;
+	background-color: #EEEEEE;
+	padding: 2px 5px;
+	margin: 0 30px;
+}
+
+.clock {
+	font-size: 9.4em;
+}
+
+.header {
+	height: 1.5em;
+	margin: 0px;
+	width: 100%;
+}
+
+.left {
+	float: left;
+	display: inline-block;
+}
+
+.nodisplay {
+	display: none;
+}
+
+.right {
+	float: right;
+	display: inline-block;
+}
+
+.setting {
+	background-color: #EEEEEE;
+	border: 1px solid #999999;
+	color: #999999;
+	margin: auto;
+	display: inline-block;
+	text-align: center;
+	padding: 6px 12px;
+}
+
+.settings {
+	width: 600px;
+	margin: auto;
+	text-align: center;
+}
+
+.time-setting {
+	width: 40px;
+	display: inline-block;
+}
+
+#work-setting, #rest-setting {
+	font-size: 1.25em;
+}
+
+.work, .rest {
+	display: inline-block;
+	text-align: center;
+	margin: 25px 50px;
+}
