@@ -11,11 +11,15 @@ var switchTimer = function(){
 		minutes = document.getElementById("rest-setting").innerHTML;
 		seconds = 0;
 		working = false;
+		$("#h2-rest").addClass("active");
+		$("#h2-work").removeClass("active");
 	} else if (working === false){
 		//switch to work timer
 		minutes = document.getElementById("work-setting").innerHTML;
 		seconds = 0;
 		working = true;
+		$("#h2-work").addClass("active");
+		$("#h2-rest").removeClass("active");
 	}
 	updateClock();
 };
@@ -75,5 +79,6 @@ $("#button-pause").click(function(){
 });
 
 $(document).ready(function(){
+	working = false;
 	switchTimer();
 });
