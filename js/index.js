@@ -4,6 +4,7 @@ var seconds = 0;
 var working = false;
 var intervalID = null;
 
+//Switch status to work or rest
 var switchTimer = function(){
 	//Do stuff like play a sound
 	if(working === true){
@@ -24,7 +25,7 @@ var switchTimer = function(){
 	updateClock();
 };
 
-//working
+//Count down by 1 second
 var countdown = function(){
 	if(seconds > 0){
 		seconds -= 1;
@@ -35,7 +36,7 @@ var countdown = function(){
 	updateClock();
 };
 
-//working
+//Stringify times in updateClock()
 var timeString = function(x){
   if(x < 10) {
 		return "0" + x;
@@ -44,7 +45,8 @@ var timeString = function(x){
 	}
 };
 
-//working
+//Stringify times and use them to change the timer;
+//Switch time work/rest when appropriate
 var updateClock = function(){
 	var newMins = timeString(minutes);
 	var newSecs = timeString(seconds);
@@ -55,7 +57,7 @@ var updateClock = function(){
 	}
 }
 
-//working
+//When active true/false turn timer on/off
 var activeChange = function(){
 	if(active === true){
 		intervalID = setInterval(countdown, 1000);
@@ -64,6 +66,7 @@ var activeChange = function(){
 	}
 }
 
+//Pause-play button icon switching
 $("#button-play").click(function(){
 	$("#button-pause").removeClass("nodisplay");
 	$("#button-play").addClass("nodisplay");
@@ -78,7 +81,52 @@ $("#button-pause").click(function(){
 	activeChange();
 });
 
+//Update the timer on page load
 $(document).ready(function(){
 	working = false;
 	switchTimer();
+});
+
+//Add and subtract buttons for rest and work settings
+var restSetting = document.getElementById("rest-setting").innerHTML;
+
+$("#rest-less").click(function(){
+	if (restSetting > 0){
+		restSetting = parseInt(restSetting) - 1;
+		$("#rest-setting").text(restSetting);
+	};
+});
+
+$("#rest-more").click(function(){
+	if (restSetting < 60){
+		restSetting = parseInt(restSetting) + 1;
+		$("#rest-setting").text(restSetting);
+	};
+});
+
+var workSetting = document.getElementById("work-setting").innerHTML;
+
+$("#work-less").click(function(){
+	if (workSetting > 0){
+		workSetting = parseInt(workSetting) - 1;
+		$("#work-setting").text(workSetting);
+	};
+});
+
+$("#work-more").click(function(){
+	if (workSetting < 60){
+		workSetting = parseInt(workSetting) + 1;
+		$("#work-setting").text(workSetting);
+	};
+});
+
+$("#button-reset").click(function(){
+	working = false;
+	minutes = $("#work-setting").val();
+	seconds = 0;
+	active = false;
+	activeChange();
+	updateClock();
+	$("#button-play").removeClass("nodisplay");
+	$("#button-pause").addClass("nodisplay");
 });

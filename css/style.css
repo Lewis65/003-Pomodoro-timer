@@ -2,12 +2,12 @@
 
 .active {
 	color: #009900;
-	border: 1px solid #009900;
 }
 
 body {
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
+	user-select: none;
 }
 
 .button-panel, .clock {
@@ -54,6 +54,10 @@ body {
 	display: inline-block;
 	text-align: center;
 	padding: 6px 12px;
+}
+
+.setting:hover {
+	border: 1px solid #009900;
 }
 
 .settings {
