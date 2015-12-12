@@ -30,6 +30,21 @@ body {
 	height: 1.5em;
 	margin: 0px;
 	width: 100%;
+	font-size: 1.1em;
+}
+
+.header a {
+	color: #000099;
+	text-decoration: none;
+}
+
+.header a:hover {
+	color: #0000EE;
+}
+
+.header i {
+	padding: 0 2px;
+	font-size: 1.15em;
 }
 
 .left {
