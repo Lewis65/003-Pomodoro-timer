@@ -3,10 +3,10 @@ var minutes = 0;
 var seconds = 0;
 var working = false;
 var intervalID = null;
+var audio = new Audio('notify.mp3');
 
 //Switch status to work or rest
 var switchTimer = function(){
-	//Do stuff like play a sound
 	if(working === true){
 		//switch to rest timer
 		minutes = document.getElementById("rest-setting").innerHTML;
@@ -53,6 +53,7 @@ var updateClock = function(){
 	$("#clock-minutes").text(newMins);
 	$("#clock-seconds").text(newSecs);
 	if(newMins == 0 && newSecs == 0){
+		audio.play();
 		switchTimer();
 	}
 }
@@ -125,8 +126,10 @@ $("#button-reset").click(function(){
 	minutes = $("#work-setting").val();
 	seconds = 0;
 	active = false;
+	audio = new Audio();
 	activeChange();
 	updateClock();
 	$("#button-play").removeClass("nodisplay");
 	$("#button-pause").addClass("nodisplay");
+	audio = new Audio('notify.mp3');
 });
